@@ -3,11 +3,11 @@
 const list = document.querySelector('ul');
 
 const formatToSum = (node) => {
-  if (typeof node !== 'string') {
+  if (!node || typeof node !== 'string') {
     return NaN;
   }
 
-  return node.replace(/[^\d.]/g, '');
+  return Number(node.replace(/[^\d.]/g, ''));
 };
 
 const sortList = (ul) => {
@@ -34,3 +34,4 @@ const getEmployees = (person) => {
 
 sortList(list);
 getEmployees(list);
+
