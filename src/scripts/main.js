@@ -23,15 +23,19 @@ const sortList = (ul) => {
   listItems.forEach((item) => list.append(item));
 };
 
-const getEmployees = (person) => {
-  return {
-    name: person.textContent,
-    position: person.dataset.position,
-    salary: person.dataset.salary,
-    age: person.dataset.age,
-  };
+const getEmployees = (ul) => {
+  const listItems = [...ul.children];
+
+  return listItems.map((person) => {
+    return {
+      name: person.textContent,
+      position: person.dataset.position,
+      salary: person.dataset.salary,
+      age: person.dataset.age,
+    };
+  });
 };
 
 sortList(list);
-getEmployees(list);
 
+const employees = getEmployees(list);
